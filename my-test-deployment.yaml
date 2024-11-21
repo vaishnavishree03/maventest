@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maventest-deployment
+  labels:
+    app: maventest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: maventest
+  template:
+    metadata:
+      labels:
+        app: maventest
+    spec:
+      containers:
+      - name: maventest-container
+        image: vaishnaveeshree03/maventest:latest
+        ports:
+        - containerPort: 8080
